@@ -7,7 +7,9 @@ const secret = "YT0e7qync8eaN5U1kF9P"
 //connecting mongodb
 const mongodb = require("mongodb");
 const mongoclient = mongodb.MongoClient;
-const URL ="mongodb://localhost:27017"
+const URL = process.env.DB;
+const dotenv = require("dotenv")
+
 
 app.use(express.json()) //middleware 
 app.use(cors({
