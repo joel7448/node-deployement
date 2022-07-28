@@ -16,7 +16,7 @@ const URL = process.env.DB;
 
 app.use(express.json()) //middleware 
 app.use(cors({
-    origin :"*"
+    origin :"https://mellow-mandazi-3bd215.netlify.app/"
 }))
 
 let authenticate = function(req,res,next){
