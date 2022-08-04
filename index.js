@@ -3,12 +3,13 @@ const app =express();
 const cors = require("cors");
 const bcryptjs = require("bcryptjs")
 const jwt = require("jsonwebtoken");
-const secret = "YT0e7qync8eaN5U1kF9P"
+
 
 const mongodb = require("mongodb");
 const mongoClient = mongodb.MongoClient;
 const dotenv = require("dotenv").config();
 const URL = process.env.DB;
+const secret = process.env.SECRET
 
 
 
@@ -197,7 +198,7 @@ try{
     const db = connection.db("b35_tamil");
 
     const user = await db.collection("users").findOne({username:req.body.username})
-
+console.log(req.body)
     if(user){
 const match = await bcryptjs.compare(req.body.password,user.password); //compares input password with hash
 
